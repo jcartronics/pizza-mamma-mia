@@ -8,6 +8,9 @@ import { Carrito } from './views/Carrito';
 // React-router-dom
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// useContext
+import Context from './context/MyContext';
+
 function App() {
   return (
     <div className="App">
