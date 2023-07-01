@@ -8,17 +8,17 @@ export const Pizzas = () => {
   return (
     <div>
         <Container fluid className='mx-6 my-3 p-2'>
-            <Row>
-                {pizzas?.map(
+            <Row className='justify-content-md-center'>
+                {pizzas?.slice(0,4).map(
                     pizza => {
                         return (
                             <Card style={{width:'18rem'}}>
                                 <Card.Img src={pizza.img} variant='top' className='m-2'/>
                                 <Card.Body>
-                                    <Card.Title>{pizza.name}</Card.Title>
+                                    <Card.Title className='titulo-pizza'>{pizza.name}</Card.Title>
                                     <Card.Text>
                                         <h6>Ingredientes:</h6>
-                                        <ul>
+                                        <ul className='ingredientes-pizza'>
                                             {pizza?.ingredients?.map(
                                                 ingrediente => {
                                                     return (

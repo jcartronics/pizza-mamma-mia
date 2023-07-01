@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.titulo-pizza::first-letter {
+  text-transform: uppercase;
+}
+
+.ingredientes-pizza li {
+  list-style: none;
+  text-align: left;
+  margin-left: 25%;
+}
+
+.ingredientes-pizza li::first-letter{
+  text-transform: uppercase;
+}
