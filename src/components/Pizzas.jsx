@@ -9,18 +9,37 @@ export const Pizzas = () => {
     <div>
         <Container fluid className='mx-6 my-3 p-2'>
             <Row>
-                <Card>
-                    <Card.Img/>
-                    <Card.Body>
-                        <Card.Title>Napolitana</Card.Title>
-                        <Card.Text>Ingredientes</Card.Text>
-                        <Card.Title>Precio:</Card.Title>
-                        <Button>Ver Más</Button>
-                        <Button>Añadir</Button>
-                    </Card.Body>
-                </Card>
+                {pizzas?.map(
+                    pizza => {
+                        return (
+                            <Card style={{width:'18rem'}}>
+                                <Card.Img src={pizza.img} variant='top' className='m-2'/>
+                                <Card.Body>
+                                    <Card.Title>{pizza.name}</Card.Title>
+                                    <Card.Text>
+                                        <h6>Ingredientes:</h6>
+                                        <ul>
+                                            {pizza?.ingredients?.map(
+                                                ingrediente => {
+                                                    return (
+                                                        <li>{ingrediente}</li>
+                                                    )
+                                                }
+                                            )}
+                                        </ul>
+                                    </Card.Text>
+                                    <Card.Title>$ {pizza.price}</Card.Title>
+                                    <Button variant='info'>Ver Más</Button>
+                                    <Button variant='danger'>Añadir</Button>
+                                </Card.Body>
+                            </Card>
+                        )
+                    }
+                )
+                }
             </Row>
-        </Container>
+            </Container>
+
     </div>
     // <div>
     //     {pizzas.map(
