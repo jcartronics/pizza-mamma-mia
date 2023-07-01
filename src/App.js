@@ -10,11 +10,29 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Hooks
 import Context from './context/MyContext';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   // Estados
   const [pizzas, setPizzas] = useState([]);
+  const url = "./pizzas.json";
+
+  const obtenerPizzas = async() => {
+    try {
+      const res = await fetch(url)
+      const data = await res.json();
+      setPizzas(data);
+    } catch(error){
+      console.log("Error al obtener datos:", error)
+    }
+  }
+
+  useEffect(() => {
+    obtenerPizzas()
+  }, [])
+
+  console.log(pizzas);
+  
   return (
     <div className="App">
       <BrowserRouter>
