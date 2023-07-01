@@ -9,7 +9,7 @@ import { Carrito } from './views/Carrito';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Hooks
-import Context from './context/MyContext';
+import Context from './context/Context';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -32,16 +32,18 @@ function App() {
   }, [])
 
   console.log(pizzas);
-  
+
   return (
     <div className="App">
-      <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/pizza/:id' element={<Pizza/>}/>
-        <Route path='/carrito' element={<Carrito/>}/>
-      </Routes>
-      </BrowserRouter>
+      <Context.Provider value={{pizzas, setPizzas}}>
+        <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/pizza/:id' element={<Pizza/>}/>
+          <Route path='/carrito' element={<Carrito/>}/>
+        </Routes>
+        </BrowserRouter>
+      </Context.Provider>
     </div>
   );
 }

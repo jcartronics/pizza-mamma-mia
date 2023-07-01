@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Context from '../context/Context'
 
 export const Pizzas = () => {
+    const {pizzas, setPizzas} = useContext(Context);
+
   return (
-    <div>Pizzas</div>
+    <div>
+        {pizzas.map(
+            (pizza) => {
+                return (
+                    <img src={pizza.img} />
+                )
+            }
+        )
+        }
+    </div>
   )
 }
