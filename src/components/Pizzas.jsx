@@ -1,9 +1,15 @@
 import React, { useContext } from 'react'
 import Context from '../context/Context'
-import { Button, Card, Container, Row } from 'react-bootstrap';
+import { Button, Card, Container, Row, ListGroup } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 export const Pizzas = () => {
-    const {pizzas, setPizzas} = useContext(Context);
+    const {pizzas, setPizzas, pizzaDetalle, setPizzaDetalle} = useContext(Context);
+    const navigate = useNavigate();
+
+    const irPizza = (pizzaId) => {
+        navigate(`/pizza/${pizzaId}`)
+    }
 
   return (
     <div>
@@ -12,24 +18,24 @@ export const Pizzas = () => {
                 {pizzas?.slice(0,4).map(
                     pizza => {
                         return (
-                            <Card style={{width:'18rem'}}>
+                            <Card key={pizza.id} style={{width:'18rem'}}>
                                 <Card.Img src={pizza.img} variant='top' className='m-2'/>
                                 <Card.Body>
                                     <Card.Title className='titulo-pizza'>{pizza.name}</Card.Title>
-                                    <Card.Text>
+                                    <ListGroup.Item>
                                         <h6>Ingredientes:</h6>
                                         <ul className='ingredientes-pizza'>
                                             {pizza?.ingredients?.map(
                                                 ingrediente => {
                                                     return (
-                                                        <li>{ingrediente}</li>
+                                                        <li key={ingrediente+pizza.id}>{ingrediente}</li>
                                                     )
                                                 }
                                             )}
                                         </ul>
-                                    </Card.Text>
+                                    </ListGroup.Item>
                                     <Card.Title>$ {pizza.price}</Card.Title>
-                                    <Button variant='info'>Ver Más</Button>
+                                    <Button variant='info' onClick={() => irPizza(pizza.id)}>Ver Más</Button>
                                     <Button variant='danger'>Añadir</Button>
                                 </Card.Body>
                             </Card>
@@ -41,15 +47,5 @@ export const Pizzas = () => {
             </Container>
 
     </div>
-    // <div>
-    //     {pizzas.map(
-    //         (pizza) => {
-    //             return (
-    //                 <img src={pizza.img} />
-    //             )
-    //         }
-    //     )
-    //     }
-    // </div>
   )
 }
