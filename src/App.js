@@ -8,10 +8,13 @@ import { Carrito } from './views/Carrito';
 // React-router-dom
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// useContext
+// Hooks
 import Context from './context/MyContext';
+import { useState } from 'react';
 
 function App() {
+  // Estados
+  const [pizzas, setPizzas] = useState([]);
   return (
     <div className="App">
       <BrowserRouter>
