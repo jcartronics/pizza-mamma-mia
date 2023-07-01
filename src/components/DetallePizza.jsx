@@ -60,8 +60,8 @@ export const DetallePizza = () => {
                         }
                     </ListGroup>
                     <Button variant="outline-success" className='m-2' onClick={volver}>Volver 🔙</Button>
-                    <Button variant="warning" className='m-2' >Añadir 🛒</Button>
-                    <Card.Title className="my-2">Precio: {pizzaDetalle.price}</Card.Title>
+                    <Button variant="danger" className='m-2' >Añadir 🛒</Button>
+                    <Card.Title className="my-2">Precio: ${pizzaDetalle.price}</Card.Title>
                     </Card.Body>
                           </Card>
                         </div>

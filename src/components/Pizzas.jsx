@@ -28,15 +28,15 @@ export const Pizzas = () => {
                                             {pizza?.ingredients?.map(
                                                 ingrediente => {
                                                     return (
-                                                        <li key={ingrediente+pizza.id}>{ingrediente}</li>
+                                                        <li key={ingrediente+pizza.id}><i>🍕</i>{ingrediente}</li>
                                                     )
                                                 }
                                             )}
                                         </ul>
                                     </ListGroup.Item>
                                     <Card.Title>$ {pizza.price}</Card.Title>
-                                    <Button variant='info' onClick={() => irPizza(pizza.id)}>Ver Más</Button>
-                                    <Button variant='danger'>Añadir</Button>
+                                    <Button variant='info' onClick={() => irPizza(pizza.id)}>Ver Más 👀</Button>
+                                    <Button variant='danger'>Añadir 🛒</Button>
                                 </Card.Body>
                             </Card>
                         )

@@ -13,6 +13,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Hooks
 import Context from './context/Context';
 import { useEffect, useState } from 'react';
+import { Navbar } from './components/Navbar';
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
       <Context.Provider value={sharedData}>
 
         <BrowserRouter>
+        <Navbar/>
 
         {/* Rutas */}
         <Routes>
